@@ -1,46 +1,32 @@
-import Ember from 'ember';
+import Component from 'ember-component';
 
-function buildLargeList(length) {
-  let list = [];
-
-  for (let i = 1; i <= length; i++) {
-    let object = {
-      id:   i,
-      name: `Name${i}`,
-      type: `type${i}`
-    };
-    list.push(object);
-  }
-
-  return list;
-}
-
-export default Ember.Component.extend({
-  list: [
-    { id: 1, name: 'Ben', type: 'dog' },
-    { id: 2, name: 'Alex', type: 'dog' },
-    { id: 3, name: 'Chris', type: 'dog' },
-    { id: 4, name: 'Chris', type: 'cat' }
+export default Component.extend({
+  pets: [
+    { name: 'Maggie',   age: 3,  type: 'dog' },
+    { name: 'Blackie',  age: 5,  type: 'cat' },
+    { name: 'Gina',     age: 2,  type: 'pig' },
+    { name: 'Ceasar',   age: 8,  type: 'dog' },
+    { name: 'Muffin',   age: 9,  type: 'cat' },
+    { name: 'Shadow',   age: 3,  type: 'dog' },
+    { name: 'Charlie',  age: 1,  type: 'pig' },
+    { name: 'Coco',     age: 4,  type: 'pig' },
+    { name: 'Snuggles', age: 15, type: 'cat' }
   ],
-
-  largeList: buildLargeList(120),
 
   properties: [
-    { key: 'id', label: 'nr' },
-    { key: 'name', label: 'animal name' },
-    { key: 'type', label: 'species' }
-  ],
-
-  actionList: [
     {
-      label: 'edit',
-      action() { }
+      key:   'name',
+      label: 'Animal name'
     },
-    {
-      label: 'delete',
-      action() { }
-    }
-  ],
 
-  doubleClickAction() { }
+    {
+      key:   'age',
+      label: 'Age'
+    },
+
+    {
+      key:   'type',
+      label: 'Species'
+    }
+  ]
 });
